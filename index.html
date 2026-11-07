@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Ridhima Sharma 💗</title>
 
 <style>
@@ -20,12 +20,12 @@ body {
     overflow-x: hidden;
 }
 
-/* FLOWERS AND HEARTS */
+/* BACKGROUND ANIMATIONS */
 
 .petal, .heart {
     position: fixed;
     pointer-events: none;
-    z-index: 20;
+    z-index: 10;
 }
 
 .petal {
@@ -81,7 +81,7 @@ body {
 }
 
 h1 {
-    font-size: clamp(30px, 6vw, 55px);
+    font-size: clamp(30px, 6vw, 48px);
     color: #d66c91;
     margin-bottom: 15px;
 }
@@ -93,7 +93,7 @@ h2 {
 
 p {
     line-height: 1.8;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 /* BUTTONS */
@@ -129,22 +129,19 @@ p {
 /* WELCOME PAGE */
 
 .welcome-card {
-    max-width: 850px;
+    max-width: 650px;
     width: 100%;
     background: white;
-    padding: 35px;
-    border-radius: 35px;
+    padding: 30px;
+    border-radius: 30px;
     box-shadow: 0 10px 40px #eacbd5;
 }
 
-/* Ridhima's actual JPEG photo */
-
 .main-photo {
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 35%;
     border: 7px solid #f6c6d6;
     margin: 25px auto;
     display: block;
@@ -153,7 +150,7 @@ p {
 
 @keyframes pulse {
     50% {
-        box-shadow: 0 0 30px #eea6c0;
+        box-shadow: 0 0 25px #eea6c0;
     }
 }
 
@@ -230,8 +227,6 @@ p {
     border: 1px dashed #e9a0b9;
 }
 
-/* FOOTER */
-
 footer {
     text-align: center;
     padding: 20px;
@@ -252,8 +247,8 @@ footer {
     }
 
     .main-photo {
-        width: 210px;
-        height: 210px;
+        width: 190px;
+        height: 190px;
     }
 
     .gift-box {
@@ -276,13 +271,9 @@ footer {
 
         <p>A little surprise made with lots of love!</p>
 
-        <!-- Ridhima's uploaded JPEG photo -->
-
-        <img
-            src="Ridhima.jpeg"
-            class="main-photo"
-            alt="Ridhima Sharma"
-        >
+        <img src="WhatsApp Image 2026-11-07 at 3.44.43 PM.jpeg"
+             class="main-photo"
+             alt="Ridhima Sharma">
 
         <h2>Dear Ridhima Sharma 🌸</h2>
 
@@ -328,6 +319,7 @@ footer {
 
         </div>
 
+
         <!-- SECOND PHOTO -->
 
         <div class="photo-card" onclick="showPage('memories')">
@@ -339,6 +331,7 @@ footer {
             <p>Some lovely moments together!</p>
 
         </div>
+
 
         <!-- THIRD PHOTO -->
 
@@ -410,11 +403,9 @@ footer {
 
         <h2 id="giftSubtitle">A little surprise for you!</h2>
 
-        <img
-            id="giftImage"
-            src="makeup-gift.jpg"
-            alt="Your Gift"
-        >
+        <img id="giftImage"
+             src="makeup-gift.jpg"
+             alt="Your Gift">
 
         <div class="note">
 
@@ -452,7 +443,7 @@ footer {
 
     <div class="gift-box">
 
-        <img src="memory.jpg" alt="Our Memory">
+        <img src="WhatsApp Image 2026-11-07 at 3.44.43 PM.jpeg" alt="Our Memory">
 
         <h2>Every Memory Is Special 💗</h2>
 
@@ -546,7 +537,7 @@ function showPage(pageId) {
 }
 
 
-// GIFT REVEAL FUNCTION
+// GIFT REVEAL
 
 function revealGift(type) {
 
