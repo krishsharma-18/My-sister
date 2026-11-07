@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ridhima Sharma 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff8f5;
+    color: #754b55;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND ANIMATIONS */
+
+.petal, .heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.petal {
+    top: -30px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.heart {
+    bottom: -30px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* PAGE DESIGN */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: clamp(30px, 6vw, 48px);
+    color: #d66c91;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #c66b8b;
+    margin-bottom: 18px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* BUTTONS */
+
+.btn {
+    background: linear-gradient(135deg, #ed9fba, #d76e96);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 8px;
+    box-shadow: 0 5px 20px #e9b3c5;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.back-btn {
+    background: white;
+    color: #c66b8b;
+    border: 1px solid #e9a0b9;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+/* WELCOME PAGE */
+
+.welcome-card {
+    max-width: 650px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px #eacbd5;
+}
+
+.main-photo {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #f6c6d6;
+    margin: 25px auto;
+    display: block;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: 0 0 25px #eea6c0;
+    }
+}
+
+/* THREE PHOTO SECTIONS */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 35px auto;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.photo-card {
+    width: 280px;
+    background: white;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #efd0da;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 1px solid #f8dce5;
+}
+
+.photo-card:hover {
+    transform: translateY(-12px) rotate(-2deg);
+    box-shadow: 0 15px 30px #eab9cb;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.photo-card h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: #c66b8b;
+}
+
+/* GIFT AND LETTER BOX */
+
+.gift-box {
+    max-width: 650px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 35px #edcbd7;
+    margin-top: 25px;
+}
+
+.gift-box img {
+    width: 100%;
+    max-width: 350px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+}
+
+.note {
+    background: #fff1f5;
+    padding: 25px;
+    border-radius: 20px;
+    line-height: 2;
+    margin-top: 20px;
+    border: 1px dashed #e9a0b9;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #c77b96;
+    background: #fff8f5;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:600px) {
+    .photo-card {
+        width: 90%;
+        max-width: 330px;
+    }
+
+    .welcome-card {
+        padding: 20px;
+    }
+
+    .main-photo {
+        width: 190px;
+        height: 190px;
+    }
+
+    .gift-box {
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: WELCOME -->
+
+<section class="page active" id="home">
+
+    <div class="welcome-card">
+
+        <h1>For Someone Special 💗</h1>
+
+        <p>A little surprise made with lots of love!</p>
+
+        <img src="sister.jpg"
+             class="main-photo"
+             alt="Ridhima Sharma">
+
+        <h2>Dear Ridhima Sharma 🌸</h2>
+
+        <p>
+            Welcome to your little world of happiness!
+
+            You are a beautiful part of our family.
+            Your smile makes every moment special.
+
+            This little website is made just for you,
+            with lots of love, beautiful memories
+            and some lovely surprises.
+        </p>
+
+        <button class="btn" onclick="showPage('surprise')">
+            Open Your Surprise 💝
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: THREE PHOTO SECTIONS -->
+
+<section class="page" id="surprise">
+
+    <h1>Welcome To Your World, Ridhima! 💗</h1>
+
+    <p>Choose any picture to explore your surprise 🌸</p>
+
+    <div class="cards">
+
+        <!-- FIRST PHOTO -->
+
+        <div class="photo-card" onclick="showPage('gifts')">
+
+            <img src="surprise1.jpg" alt="Gift Surprise">
+
+            <h3>🎁 Gift Surprise</h3>
+
+            <p>Choose your favourite gift!</p>
+
+        </div>
+
+
+        <!-- SECOND PHOTO -->
+
+        <div class="photo-card" onclick="showPage('memories')">
+
+            <img src="surprise2.jpg" alt="Beautiful Memories">
+
+            <h3>📸 Beautiful Memories</h3>
+
+            <p>Some lovely moments together!</p>
+
+        </div>
+
+
+        <!-- THIRD PHOTO -->
+
+        <div class="photo-card" onclick="showPage('letter')">
+
+            <img src="surprise3.jpg" alt="Special Message">
+
+            <h3>💌 Special Message</h3>
+
+            <p>A little letter just for you!</p>
+
+        </div>
+
+    </div>
+
+    <button class="back-btn" onclick="showPage('home')">
+        ← Back to Welcome
+    </button>
+
+</section>
+
+
+<!-- PAGE 3: GIFT SELECTION -->
+
+<section class="page" id="gifts">
+
+    <h1>Choose Your Favourite Gift 🎀</h1>
+
+    <p>Which surprise would make you happier?</p>
+
+    <div class="cards">
+
+        <div class="photo-card" onclick="revealGift('makeup')">
+
+            <img src="makeup.jpg" alt="Makeup Kit">
+
+            <h3>Makeup Kit 💄</h3>
+
+            <p>A little beauty surprise!</p>
+
+        </div>
+
+        <div class="photo-card" onclick="revealGift('teddy')">
+
+            <img src="teddy.jpg" alt="Teddy Bear">
+
+            <h3>Teddy Bear 🧸</h3>
+
+            <p>A cute and cuddly surprise!</p>
+
+        </div>
+
+    </div>
+
+    <button class="back-btn" onclick="showPage('surprise')">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- PAGE 4: GIFT REVEAL -->
+
+<section class="page" id="reveal">
+
+    <h1 id="giftTitle">Your Special Gift 💗</h1>
+
+    <div class="gift-box">
+
+        <h2 id="giftSubtitle">A little surprise for you!</h2>
+
+        <img id="giftImage"
+             src="makeup-gift.jpg"
+             alt="Your Gift">
+
+        <div class="note">
+
+            <h2>A Special Note For You 🌸</h2>
+
+            <p id="giftNote">
+                Dear Ridhima, you deserve all the happiness
+                in the world!
+            </p>
+
+        </div>
+
+        <h2 style="margin-top:20px;">
+            Lots of Love! 💕
+        </h2>
+
+    </div>
+
+    <button class="btn" onclick="showPage('gifts')">
+        Choose Another Gift
+    </button>
+
+    <button class="back-btn" onclick="showPage('surprise')">
+        Back to Home
+    </button>
+
+</section>
+
+
+<!-- PAGE 5: BEAUTIFUL MEMORIES -->
+
+<section class="page" id="memories">
+
+    <h1>Beautiful Memories 📸</h1>
+
+    <div class="gift-box">
+
+        <img src="memory.jpg" alt="Our Memory">
+
+        <h2>Every Memory Is Special 💗</h2>
+
+        <p>
+            Life is made of little moments,
+            beautiful memories and endless laughter.
+
+            May your life always be filled with
+            happiness, love and beautiful memories.
+        </p>
+
+    </div>
+
+    <button class="back-btn" onclick="showPage('surprise')">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- PAGE 6: SPECIAL LETTER -->
+
+<section class="page" id="letter">
+
+    <h1>A Letter For You 💌</h1>
+
+    <div class="gift-box">
+
+        <h2>Dear Ridhima Sharma 🌷</h2>
+
+        <div class="note">
+
+            You are not just a sister,
+            you are a wonderful part of our lives.
+
+            <br><br>
+
+            May your every dream come true.
+            May you always find reasons to smile.
+
+            <br><br>
+
+            Never stop being the amazing person you are.
+
+            <br><br>
+
+            Keep smiling, keep shining
+            and always stay happy!
+
+            <br><br>
+
+            With lots of love,
+
+            <br>
+
+            Your Family ❤️
+
+        </div>
+
+    </div>
+
+    <button class="back-btn" onclick="showPage('surprise')">
+        ← Back
+    </button>
+
+</section>
+
+
+<footer>
+    Made with Love for Ridhima Sharma 💗
+</footer>
+
+
+<script>
+
+// PAGE NAVIGATION
+
+function showPage(pageId) {
+
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+}
+
+
+// GIFT REVEAL
+
+function revealGift(type) {
+
+    const title = document.getElementById('giftTitle');
+    const subtitle = document.getElementById('giftSubtitle');
+    const image = document.getElementById('giftImage');
+    const note = document.getElementById('giftNote');
+
+    if (type === 'makeup') {
+
+        title.innerHTML = "A Beauty Surprise For You 💄";
+
+        subtitle.innerHTML = "Your Makeup Gift! 🎀";
+
+        image.src = "makeup-gift.jpg";
+
+        note.innerHTML =
+        "Dear Ridhima, may your life always be as " +
+        "beautiful as your heart. Keep shining, keep " +
+        "smiling and never forget how special you are. " +
+        "This little surprise is just for you! 💗";
+
+    }
+
+    else if (type === 'teddy') {
+
+        title.innerHTML = "A Cuddly Surprise For You 🧸";
+
+        subtitle.innerHTML = "Your Cute Teddy Bear!";
+
+        image.src = "teddy-gift.jpg";
+
+        note.innerHTML =
+        "Dear Ridhima, just like this cute teddy bear, " +
+        "may your life always be filled with warmth, " +
+        "comfort and happiness. You deserve all the " +
+        "love and beautiful things in this world! 💕";
+
+    }
+
+    showPage('reveal');
+
+}
+
+
+// FLOATING FLOWERS
+
+const flowers = ["🌸", "🌷", "🌺", "🌼", "💮"];
+
+function createPetal() {
+
+    const petal = document.createElement('div');
+
+    petal.className = 'petal';
+
+    petal.innerHTML =
+    flowers[Math.floor(Math.random() * flowers.length)];
+
+    petal.style.left = Math.random() * 100 + 'vw';
+
+    petal.style.fontSize =
+    (15 + Math.random() * 20) + 'px';
+
+    petal.style.animationDuration =
+    (5 + Math.random() * 8) + 's';
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 13000);
+
+}
+
+setInterval(createPetal, 500);
+
+
+// FLOATING HEARTS
+
+function createHeart() {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'heart';
+
+    heart.innerHTML = '💗';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    heart.style.fontSize = '20px';
+
+    heart.style.animationDuration =
+    (5 + Math.random() * 5) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 11000);
+
+}
+
+setInterval(createHeart, 1800);
+
+</script>
+
+</body>
+</html>
