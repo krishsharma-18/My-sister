@@ -21,39 +21,27 @@ body {
     overflow-x: hidden;
 }
 
-/* FLOATING ANIMATIONS */
+/* FLOATING FLOWERS AND HEARTS */
 
-.petal, .heart {
+.floating {
     position: fixed;
     pointer-events: none;
-    z-index: 20;
+    z-index: 100;
+    animation: floatDown linear forwards;
 }
 
-.petal {
-    top: -30px;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
+@keyframes floatDown {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
         transform: translateY(110vh) rotate(360deg);
         opacity: 0;
     }
 }
 
-.heart {
-    bottom: -30px;
-    animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
-}
-
-/* PAGE DESIGN */
+/* PAGES */
 
 .page {
     display: none;
@@ -65,12 +53,12 @@ body {
 .page.active {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    animation: appear 0.8s ease;
+    align-items: center;
+    animation: fadeIn 0.8s ease;
 }
 
-@keyframes appear {
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -93,8 +81,8 @@ h2 {
 }
 
 p {
-    line-height: 1.8;
     font-size: 17px;
+    line-height: 1.8;
 }
 
 /* BUTTONS */
@@ -114,7 +102,6 @@ p {
 
 .btn:hover {
     transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 25px #e9a2bd;
 }
 
 .back-btn {
@@ -126,6 +113,12 @@ p {
     cursor: pointer;
     margin-top: 25px;
     font-size: 15px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #fff0f5;
+    transform: translateY(-3px);
 }
 
 /* WELCOME PAGE */
@@ -137,27 +130,44 @@ p {
     padding: 35px;
     border-radius: 35px;
     box-shadow: 0 10px 40px #eacbd5;
+    position: relative;
+    overflow: hidden;
 }
+
+.welcome-heart {
+    font-size: 48px;
+    margin: 8px 0 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* SISTER PHOTO */
 
 .main-photo {
     width: 280px;
     height: 280px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 35%;
     border: 7px solid #f6c6d6;
     margin: 25px auto;
     display: block;
     animation: pulse 3s infinite;
+    box-shadow: 0 5px 25px #f3c5d5;
 }
 
 @keyframes pulse {
     50% {
-        box-shadow: 0 0 30px #eea6c0;
+        box-shadow: 0 0 35px #eea6c0;
     }
 }
 
-/* PHOTO CARDS */
+/* THREE PHOTO CARDS */
 
 .cards {
     display: flex;
@@ -197,9 +207,10 @@ p {
     margin-top: 15px;
     margin-bottom: 8px;
     color: #c66b8b;
+    font-size: 21px;
 }
 
-/* GIFT BOX */
+/* GIFT AND MESSAGE BOX */
 
 .gift-box {
     max-width: 650px;
@@ -228,6 +239,18 @@ p {
     line-height: 2;
     margin-top: 20px;
     border: 1px dashed #e9a0b9;
+    font-size: 17px;
+}
+
+/* SPECIAL LETTER */
+
+.letter {
+    background: #fff4f7;
+    border: 2px dashed #e9a0b9;
+    padding: 30px;
+    border-radius: 20px;
+    line-height: 2;
+    text-align: left;
 }
 
 /* FOOTER */
@@ -241,11 +264,7 @@ footer {
 
 /* MOBILE RESPONSIVE */
 
-@media(max-width:600px) {
-    .photo-card {
-        width: 90%;
-        max-width: 330px;
-    }
+@media(max-width: 600px) {
 
     .welcome-card {
         padding: 20px;
@@ -256,8 +275,17 @@ footer {
         height: 210px;
     }
 
+    .photo-card {
+        width: 90%;
+        max-width: 330px;
+    }
+
     .gift-box {
         padding: 20px;
+    }
+
+    h1 {
+        font-size: 32px;
     }
 }
 
@@ -272,11 +300,13 @@ footer {
 
     <div class="welcome-card">
 
-        <h1>For Someone Special 💗</h1>
+        <h1>For Someone Special</h1>
+
+        <div class="welcome-heart">💗</div>
 
         <p>A little surprise made with lots of love!</p>
 
-        <!-- YOUR SISTER'S JPEG PHOTO -->
+        <!-- Ridhima's JPEG PHOTO -->
 
         <img
             src="Ridhima.jpeg"
@@ -284,7 +314,7 @@ footer {
             alt="Ridhima Sharma"
         >
 
-        <h2>Dear Ridhima Sharma 🌸</h2>
+        <h2>🌸 Dear Ridhima Sharma 🌸</h2>
 
         <p>
             Welcome to your little world of happiness!
@@ -371,21 +401,25 @@ footer {
 
     <div class="cards">
 
+        <!-- MAKEUP KIT -->
+
         <div class="photo-card" onclick="revealGift('makeup')">
 
             <img src="makeup.jpeg" alt="Makeup Kit">
 
-            <h3>Makeup Kit 💄</h3>
+            <h3>💄 Makeup Kit</h3>
 
             <p>A little beauty surprise!</p>
 
         </div>
 
+        <!-- TEDDY BEAR -->
+
         <div class="photo-card" onclick="revealGift('teddy')">
 
             <img src="teddy.jpeg" alt="Teddy Bear">
 
-            <h3>Teddy Bear 🧸</h3>
+            <h3>🧸 Teddy Bear</h3>
 
             <p>A cute and cuddly surprise!</p>
 
@@ -452,7 +486,7 @@ footer {
 
     <div class="gift-box">
 
-        <img src="memory.jpeg" alt="Our Memory">
+        <img src="memory.jpeg" alt="Beautiful Memory">
 
         <h2>Every Memory Is Special 💗</h2>
 
@@ -483,14 +517,18 @@ footer {
 
         <h2>Dear Ridhima Sharma 🌷</h2>
 
-        <div class="note">
+        <div class="letter">
 
-            You are not just a sister,
-            you are a wonderful part of our lives.
+            You are a wonderful part of our lives.
 
             <br><br>
 
-            May your every dream come true.
+            Your smile brings happiness,
+            and your presence makes every moment special.
+
+            <br><br>
+
+            May all your dreams come true.
             May you always find reasons to smile.
 
             <br><br>
@@ -528,7 +566,7 @@ footer {
 
 <script>
 
-// PAGE NAVIGATION
+/* PAGE NAVIGATION */
 
 function showPage(pageId) {
 
@@ -546,7 +584,7 @@ function showPage(pageId) {
 }
 
 
-// GIFT REVEAL FUNCTION
+/* GIFT REVEAL */
 
 function revealGift(type) {
 
@@ -592,64 +630,39 @@ function revealGift(type) {
 }
 
 
-// FLOATING FLOWERS
+/* FLOATING FLOWERS AND HEARTS */
 
-const flowers = ["🌸", "🌷", "🌺", "🌼", "💮"];
+const decorations = [
+    "🌸", "🌷", "🌺", "🌼", "💮", "💗", "💕"
+];
 
-function createPetal() {
+function createDecoration() {
 
-    const petal = document.createElement('div');
+    const item = document.createElement('div');
 
-    petal.className = 'petal';
+    item.className = 'floating';
 
-    petal.innerHTML =
-    flowers[Math.floor(Math.random() * flowers.length)];
+    item.innerHTML =
+        decorations[Math.floor(Math.random() * decorations.length)];
 
-    petal.style.left = Math.random() * 100 + 'vw';
+    item.style.left = Math.random() * 100 + 'vw';
 
-    petal.style.fontSize =
-    (15 + Math.random() * 20) + 'px';
+    item.style.fontSize =
+        (15 + Math.random() * 20) + 'px';
 
-    petal.style.animationDuration =
-    (5 + Math.random() * 8) + 's';
+    const duration = 6 + Math.random() * 7;
 
-    document.body.appendChild(petal);
+    item.style.animationDuration = duration + 's';
+
+    document.body.appendChild(item);
 
     setTimeout(() => {
-        petal.remove();
-    }, 13000);
+        item.remove();
+    }, duration * 1000);
 
 }
 
-setInterval(createPetal, 500);
-
-
-// FLOATING HEARTS
-
-function createHeart() {
-
-    const heart = document.createElement('div');
-
-    heart.className = 'heart';
-
-    heart.innerHTML = '💗';
-
-    heart.style.left = Math.random() * 100 + 'vw';
-
-    heart.style.fontSize = '20px';
-
-    heart.style.animationDuration =
-    (5 + Math.random() * 5) + 's';
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 11000);
-
-}
-
-setInterval(createHeart, 1800);
+setInterval(createDecoration, 650);
 
 </script>
 
