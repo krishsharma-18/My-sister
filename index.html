@@ -21,12 +21,12 @@ body {
     overflow-x: hidden;
 }
 
-/* BACKGROUND ANIMATIONS */
+/* FLOATING ANIMATIONS */
 
 .petal, .heart {
     position: fixed;
     pointer-events: none;
-    z-index: 10;
+    z-index: 20;
 }
 
 .petal {
@@ -82,7 +82,7 @@ body {
 }
 
 h1 {
-    font-size: clamp(30px, 6vw, 48px);
+    font-size: clamp(30px, 6vw, 55px);
     color: #d66c91;
     margin-bottom: 15px;
 }
@@ -94,7 +94,7 @@ h2 {
 
 p {
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 /* BUTTONS */
@@ -114,6 +114,7 @@ p {
 
 .btn:hover {
     transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px #e9a2bd;
 }
 
 .back-btn {
@@ -130,19 +131,20 @@ p {
 /* WELCOME PAGE */
 
 .welcome-card {
-    max-width: 650px;
+    max-width: 850px;
     width: 100%;
     background: white;
-    padding: 30px;
-    border-radius: 30px;
+    padding: 35px;
+    border-radius: 35px;
     box-shadow: 0 10px 40px #eacbd5;
 }
 
 .main-photo {
-    width: 230px;
-    height: 230px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     border: 7px solid #f6c6d6;
     margin: 25px auto;
     display: block;
@@ -151,11 +153,11 @@ p {
 
 @keyframes pulse {
     50% {
-        box-shadow: 0 0 25px #eea6c0;
+        box-shadow: 0 0 30px #eea6c0;
     }
 }
 
-/* THREE PHOTO SECTIONS */
+/* PHOTO CARDS */
 
 .cards {
     display: flex;
@@ -197,7 +199,7 @@ p {
     color: #c66b8b;
 }
 
-/* GIFT AND LETTER BOX */
+/* GIFT BOX */
 
 .gift-box {
     max-width: 650px;
@@ -228,6 +230,8 @@ p {
     border: 1px dashed #e9a0b9;
 }
 
+/* FOOTER */
+
 footer {
     text-align: center;
     padding: 20px;
@@ -248,8 +252,8 @@ footer {
     }
 
     .main-photo {
-        width: 190px;
-        height: 190px;
+        width: 210px;
+        height: 210px;
     }
 
     .gift-box {
@@ -272,9 +276,13 @@ footer {
 
         <p>A little surprise made with lots of love!</p>
 
-        <img src="sister.jpg"
-             class="main-photo"
-             alt="Ridhima Sharma">
+        <!-- YOUR SISTER'S JPEG PHOTO -->
+
+        <img
+            src="Ridhima.jpeg"
+            class="main-photo"
+            alt="Ridhima Sharma"
+        >
 
         <h2>Dear Ridhima Sharma 🌸</h2>
 
@@ -312,7 +320,7 @@ footer {
 
         <div class="photo-card" onclick="showPage('gifts')">
 
-            <img src="surprise1.jpg" alt="Gift Surprise">
+            <img src="surprise1.jpeg" alt="Gift Surprise">
 
             <h3>🎁 Gift Surprise</h3>
 
@@ -320,12 +328,11 @@ footer {
 
         </div>
 
-
         <!-- SECOND PHOTO -->
 
         <div class="photo-card" onclick="showPage('memories')">
 
-            <img src="surprise2.jpg" alt="Beautiful Memories">
+            <img src="surprise2.jpeg" alt="Beautiful Memories">
 
             <h3>📸 Beautiful Memories</h3>
 
@@ -333,12 +340,11 @@ footer {
 
         </div>
 
-
         <!-- THIRD PHOTO -->
 
         <div class="photo-card" onclick="showPage('letter')">
 
-            <img src="surprise3.jpg" alt="Special Message">
+            <img src="surprise3.jpeg" alt="Special Message">
 
             <h3>💌 Special Message</h3>
 
@@ -367,7 +373,7 @@ footer {
 
         <div class="photo-card" onclick="revealGift('makeup')">
 
-            <img src="makeup.jpg" alt="Makeup Kit">
+            <img src="makeup.jpeg" alt="Makeup Kit">
 
             <h3>Makeup Kit 💄</h3>
 
@@ -377,7 +383,7 @@ footer {
 
         <div class="photo-card" onclick="revealGift('teddy')">
 
-            <img src="teddy.jpg" alt="Teddy Bear">
+            <img src="teddy.jpeg" alt="Teddy Bear">
 
             <h3>Teddy Bear 🧸</h3>
 
@@ -404,9 +410,11 @@ footer {
 
         <h2 id="giftSubtitle">A little surprise for you!</h2>
 
-        <img id="giftImage"
-             src="makeup-gift.jpg"
-             alt="Your Gift">
+        <img
+            id="giftImage"
+            src="makeup-gift.jpeg"
+            alt="Your Gift"
+        >
 
         <div class="note">
 
@@ -444,7 +452,7 @@ footer {
 
     <div class="gift-box">
 
-        <img src="memory.jpg" alt="Our Memory">
+        <img src="memory.jpeg" alt="Our Memory">
 
         <h2>Every Memory Is Special 💗</h2>
 
@@ -538,7 +546,7 @@ function showPage(pageId) {
 }
 
 
-// GIFT REVEAL
+// GIFT REVEAL FUNCTION
 
 function revealGift(type) {
 
@@ -553,7 +561,7 @@ function revealGift(type) {
 
         subtitle.innerHTML = "Your Makeup Gift! 🎀";
 
-        image.src = "makeup-gift.jpg";
+        image.src = "makeup-gift.jpeg";
 
         note.innerHTML =
         "Dear Ridhima, may your life always be as " +
@@ -569,7 +577,7 @@ function revealGift(type) {
 
         subtitle.innerHTML = "Your Cute Teddy Bear!";
 
-        image.src = "teddy-gift.jpg";
+        image.src = "teddy-gift.jpeg";
 
         note.innerHTML =
         "Dear Ridhima, just like this cute teddy bear, " +
